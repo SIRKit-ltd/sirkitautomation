@@ -15,26 +15,6 @@ function GetClientList{
 	$excludedClientArray = $excludedClients -split ','
 	$includedClientArray = $includedClients -split ','
 
-  	Write-Host "ExcludedClients Raw: $excludedClients"
-   	Write-Host "IncludedClients Raw: $includedClients"
- 	Write-Host "excludedClientArray: $excludedClientArray"
-  	Write-Host "includedClientArray: $includedClientArray"
-   
-    	Write-Host "excludedClientArray0-0: $($excludedClientArray[0][0])"
-     	Write-Host "excludedClientArray0-1: $($excludedClientArray[0][1])"
-     	Write-Host "excludedClientArray1-0: $($excludedClientArray[1][0])"
-     	Write-Host "excludedClientArray1-1: $($excludedClientArray[1][1])"
-
-      	Write-Host "First Client: $($excludedClientArray[0])"
-	Write-Host "Second Client: $($excludedClientArray[1])"
-
- 	foreach($client in $excludedClientArray){ Write-Host "Client: $client" }
-    
-	Write-Host "allClients is: $allClients"
- 	
-	Write-Host "excludedClientArray Count: $($excludedClientArray.Count)"
-	Write-Host "includedClientArray Count: $($includedClientArray.Count)"
-
 	#Setup Varibles to access tenent lists.
 	$tenantId = $env:TenantID
 	$appId = $env:ApplicationID
