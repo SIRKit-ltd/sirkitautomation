@@ -3,6 +3,8 @@ using namespace System.Net
 # Input bindings are passed in via param block.
 param($Request, $TriggerMetadata)
 
+Import-Module '.\SirkITHelper.psm1'
+
 #Setup a blank outputBody varible.
 $outputBody = ""
 
