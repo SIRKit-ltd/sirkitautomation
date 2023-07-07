@@ -17,7 +17,7 @@ if ($Request.Query.allClients -eq 'true') { $allClientsBool = $true }
 $clientList = GetClientList -allClients $allClientsBool -excludedClients "$($body.excludedClients)" -includedClients "$($body.includedClients)"
 
 foreach($client in $clientList){
-		$outputBody += "Found client $($client.displayName) with tenant ID $($client.tenantId) .`r`n"
+		$outputBody += "Found client $($client.displayName) with tenant ID $($client.customerId) .`r`n"
 }
 
 # Associate values to output bindings by calling 'Push-OutputBinding'.
