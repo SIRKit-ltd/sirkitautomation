@@ -13,9 +13,14 @@ if ($Request.Body -is [Hashtable]) { $body = $Request.Body  } else { $body = $Re
 $allClientsBool = $false
 if ($Request.Query.allClients -eq 'true') { $allClientsBool = $true }
 
+$outputBody += "All Clients is $allClientsBool `r`n"
+$outputBody += "Exclusion list is $($body.excludedClients) `r`n"
+$outputBody += "Inclusion list is $($body.includedClients) `r`n"
+
 #Get a filtered client list of only clients that should have code executed.
 $clientList = GetClientList -allClients $allClientsBool -excludedClients "$($body.excludedClients)" -includedClients "$($body.includedClients)"
 
+$outputBody += "Got filtered client list with $($clientList.Count) clients.`r`n"
 foreach($client in $clientList){
 		$outputBody += "Found client $($client.displayName) with tenant ID $($client.tenantId) .`r`n"
 }
