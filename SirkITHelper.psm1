@@ -1,5 +1,4 @@
-function GetClientList
-{
+function GetClientList {
 	[CmdletBinding()]
 	param(
 			[Parameter(Mandatory=$false)]
