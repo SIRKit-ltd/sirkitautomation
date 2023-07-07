@@ -26,8 +26,8 @@ function GetClientList{
     		Write-Host "Client: '$_'"
 	}
 
-	#Write-Host "First Client: $($includedClientsArray[0])"
-	#Write-Host "Second Client: $($includedClientsArray[1])"
+	Write-Host "First Client: $($includedClientsArray[0])"
+	Write-Host "Second Client: $($includedClientsArray[1])"
 
 
 	#Setup Varibles to access tenent lists.
