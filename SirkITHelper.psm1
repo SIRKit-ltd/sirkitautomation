@@ -19,7 +19,7 @@ function GetClientList{
 	Write-Host "excludedClientArray Count: $($excludedClientArray.Count)"
 	Write-Host "includedClientArray Count: $($includedClientArray.Count)"
  	foreach($client in $includedClientsArray){
-		Write-Host "Client: '$client'"
+		Write-Host "Client: $client"
 	}
 
 	#Setup Varibles to access tenent lists.
