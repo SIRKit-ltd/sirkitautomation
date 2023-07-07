@@ -12,9 +12,9 @@ $allClientsBool = $false
 if ($Request.Query.allClients -eq 'true') { $allClientsBool = $true }
 
 #Get a filtered client list of only clients that should have code executed.
-clientList = GetClientList -allClients $allClientsBool -excludedClients "$($body.excludedClients)" -includedClients "$($body.includedClients)"
+$clientList = GetClientList -allClients $allClientsBool -excludedClients "$($body.excludedClients)" -includedClients "$($body.includedClients)"
 
-foreach(client in clientList){
+foreach($client in $clientList){
 		$outputBody += "Found client $($client.displayName) with tenant ID $($client.tenantId) .`r`n"
 }
 
