@@ -15,9 +15,9 @@ function GetClientList{
 	$excludedClientArray = $excludedClients -split ','
 	$includedClientArray = $includedClients -split ','
 	
-	Write-Output "allClients is: $allClients"
-	Write-Output "excludedClientArray Count: $($excludedClientArray.Count)"
-	Write-Output "includedClientArray Count: $($includedClientArray.Count)"
+	Write-Host "allClients is: $allClients"
+	Write-Host "excludedClientArray Count: $($excludedClientArray.Count)"
+	Write-Host "includedClientArray Count: $($includedClientArray.Count)"
 
 	#Setup Varibles to access tenent lists.
 	$tenantId = $env:TenantID
@@ -47,7 +47,10 @@ function GetClientList{
 	$lighthouseResponseValue = $lighthouseResponse.value
 	$clientList = $lighthouseResponseValue | Select-Object id, @{l = 'customerId'; e = { $_.tenantId } }, displayName | Sort-Object -Property displayName
 
-	Write-Output"clientList Raw Count: $($clientList.Count)"
+	Write-Output "clientList Raw Count: $($clientList.Count)"
+	foreach($client in $includedClientsArray){
+		Write-Host "$client"
+	}
 
 	if ($allClients) {
 		$clientList = $clientList | Where-Object { $_.displayName -notin $excludedClientsArray }
@@ -55,7 +58,8 @@ function GetClientList{
 		$clientList = $clientList | Where-Object { $_.displayName -in $includedClientsArray }
 	}
 
-	Write-Output "clientList Filtered Count: $($clientList.Count)"
+	Write-Host "clientList Filtered Count: $($clientList.Count)"
+	
 	#Return Client list
 	return $clientList
 }
