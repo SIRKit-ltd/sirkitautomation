@@ -66,9 +66,9 @@ function GetClientList{
 	Write-Host "clientList Raw Count: $($clientList.Count)"
 
 	if ($allClients) {
-		$clientList = $clientList | Where-Object { $_.displayName -notin $excludedClientsArray }
+		$clientList = $clientList | Where-Object { $_.displayName -notin $excludedClientArray }
 	} else {
-		$clientList = $clientList | Where-Object { $_.displayName -in $includedClientsArray }
+		$clientList = $clientList | Where-Object { $_.displayName -in $includedClientArray }
 	}
 
 	Write-Host "clientList Filtered Count: $($clientList.Count)"
