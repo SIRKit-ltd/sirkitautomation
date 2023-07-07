@@ -24,6 +24,11 @@ function GetClientList{
      	Write-Host "excludedClientArray0-1: $($excludedClientArray[0][1])"
      	Write-Host "excludedClientArray1-0: $($excludedClientArray[1][0])"
      	Write-Host "excludedClientArray1-1: $($excludedClientArray[1][1])"
+
+      	Write-Host "First Client: $($excludedClientArray[0])"
+	Write-Host "Second Client: $($excludedClientArray[1])"
+
+ 	foreach($client in $excludedClientArray){ Write-Host "Client: $client" }
     
 	Write-Host "allClients is: $allClients"
  	
