@@ -24,7 +24,15 @@ function GetClientList{
 	Write-Host "includedClientArray Count: $($includedClientArray.Count)"
 
 	$nonNullIncludedClientsArray = $includedClientsArray | Where-Object { $_ -ne $null -and $_.Trim() -ne '' }
+	Write-Host "Non-Null Array Count: $($nonNullIncludedClientsArray.Count)"
+
+	if ($nonNullIncludedClientsArray.Count -gt 0) {
+	    Write-Host "Non-Null Array First Client: $($nonNullIncludedClientsArray[0])"
+	}
 	
+	if ($nonNullIncludedClientsArray.Count -gt 1) {
+	    Write-Host "Non-Null Array Second Client: $($nonNullIncludedClientsArray[1])"
+	}
 	$nonNullIncludedClientsArray | ForEach-Object {
 	    Write-Host "Client: '$_', Type: $($_.GetType().FullName)"
 	}
