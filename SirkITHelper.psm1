@@ -20,6 +20,11 @@ function GetClientList{
  	Write-Host "excludedClientArray: $excludedClientArray"
   	Write-Host "includedClientArray: $includedClientArray"
    
+    	Write-Host "excludedClientArray0-0: $($excludedClientArray[0][0])"
+     	Write-Host "excludedClientArray0-1: $($excludedClientArray[0][1])"
+     	Write-Host "excludedClientArray1-0: $($excludedClientArray[1][0])"
+     	Write-Host "excludedClientArray1-1: $($excludedClientArray[1][1])"
+    
 	Write-Host "allClients is: $allClients"
  	
 	Write-Host "excludedClientArray Count: $($excludedClientArray.Count)"
