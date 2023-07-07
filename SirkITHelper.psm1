@@ -15,36 +15,15 @@ function GetClientList{
 	$excludedClientArray = $excludedClients -split ','
 	$includedClientArray = $includedClients -split ','
 
- 	Write-Host "$excludedClientArray"
-  	Write-Host "$includedClientArray"
-	Write-Host "allClients is: $allClients"
- 	Write-Host "IncludedClients Raw: $includedClients"
   	Write-Host "ExcludedClients Raw: $excludedClients"
+   	Write-Host "IncludedClients Raw: $includedClients"
+ 	Write-Host "excludedClientArray: $excludedClientArray"
+  	Write-Host "includedClientArray: $includedClientArray"
+   
+	Write-Host "allClients is: $allClients"
+ 	
 	Write-Host "excludedClientArray Count: $($excludedClientArray.Count)"
 	Write-Host "includedClientArray Count: $($includedClientArray.Count)"
-
-	$nonNullIncludedClientsArray = $includedClientsArray | Where-Object { $_ -ne $null -and $_.Trim() -ne '' }
-	Write-Host "Non-Null Array Count: $($nonNullIncludedClientsArray.Count)"
-
-	if ($nonNullIncludedClientsArray.Count -gt 0) {
-	    Write-Host "Non-Null Array First Client: $($nonNullIncludedClientsArray[0])"
-	}
-	
-	if ($nonNullIncludedClientsArray.Count -gt 1) {
-	    Write-Host "Non-Null Array Second Client: $($nonNullIncludedClientsArray[1])"
-	}
-	$nonNullIncludedClientsArray | ForEach-Object {
-	    Write-Host "Client: '$_', Type: $($_.GetType().FullName)"
-	}
-	
-	Write-Host "Non-Null Array First Client: $($nonNullIncludedClientsArray[0])"
-	Write-Host "Non-Null Array Second Client: $($nonNullIncludedClientsArray[1])"
-
-
-
-	Write-Host "First Client: $($includedClientsArray[0])"
-	Write-Host "Second Client: $($includedClientsArray[1])"
-
 
 	#Setup Varibles to access tenent lists.
 	$tenantId = $env:TenantID
