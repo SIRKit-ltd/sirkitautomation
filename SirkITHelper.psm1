@@ -14,8 +14,11 @@ function GetClientList{
 	# Split the client strings into arrays
 	$excludedClientArray = $excludedClients -split ','
 	$includedClientArray = $includedClients -split ','
-	
+
+ 	
 	Write-Host "allClients is: $allClients"
+ 	Write-Host "IncludedClients Raw: $includedClients"
+  	Write-Host "ExcludedClients Raw: $excludedClients"
 	Write-Host "excludedClientArray Count: $($excludedClientArray.Count)"
 	Write-Host "includedClientArray Count: $($includedClientArray.Count)"
 	Write-Host "First Client: $($includedClientsArray[0])"
