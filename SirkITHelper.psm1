@@ -18,9 +18,9 @@ function GetClientList{
 	Write-Host "allClients is: $allClients"
 	Write-Host "excludedClientArray Count: $($excludedClientArray.Count)"
 	Write-Host "includedClientArray Count: $($includedClientArray.Count)"
- 	foreach($client in $includedClientsArray){
-		Write-Host "Client: $client"
-	}
+	Write-Host "First Client: $($includedClientsArray[0])"
+	Write-Host "Second Client: $($includedClientsArray[1])"
+
 
 	#Setup Varibles to access tenent lists.
 	$tenantId = $env:TenantID
