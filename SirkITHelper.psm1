@@ -1,4 +1,4 @@
-function GetClientList {
+function GetClientList{
 	[CmdletBinding()]
 	param(
 			[Parameter(Mandatory=$false)]
@@ -14,6 +14,11 @@ function GetClientList {
 	# Split the client strings into arrays
 	$excludedClientArray = $excludedClients -split ','
 	$includedClientArray = $includedClients -split ','
+
+	$outputBody = ""
+	$outputBody += "allClients is: $allClients"
+	$outputBody += "excludedClientArray Count: $($excludedClientArray.Count)"
+	$outputBody += "includedClientArray Count: $($includedClientArray.Count)"
 
 	#Setup Varibles to access tenent lists.
 	$tenantId = $env:TenantID
@@ -43,12 +48,17 @@ function GetClientList {
 	$lighthouseResponseValue = $lighthouseResponse.value
 	$clientList = $lighthouseResponseValue | Select-Object id, @{l = 'customerId'; e = { $_.tenantId } }, displayName | Sort-Object -Property displayName
 
+	$outputBody += "clientList Raw Count: $($clientList.Count)"
+
 	if ($allClients) {
 		$clientList = $clientList | Where-Object { $_.displayName -notin $excludedClientsArray }
 	} else {
 		$clientList = $clientList | Where-Object { $_.displayName -in $includedClientsArray }
 	}
 
+	$outputBody += "clientList Filtered Count: $($clientList.Count)"
+
+	return $outputBody
 	#Return Client list
-	return $clientList
+	#return $clientList
 }
