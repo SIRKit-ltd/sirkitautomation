@@ -22,21 +22,10 @@ function GetClientList{
 	Write-Host "excludedClientArray Count: $($excludedClientArray.Count)"
 	Write-Host "includedClientArray Count: $($includedClientArray.Count)"
 
- 
-	$cloneArray = $includedClientsArray.Clone()
-	Write-Host "CloneArray First Client: $($cloneArray[0])"
-	Write-Host "CloneArray Second Client: $($cloneArray[1])"
-	
-	$cloneArray | ForEach-Object {
-	    Write-Host "CloneArray Client: '$_'"
+	$includedClientsArray | ForEach-Object {
+	    Write-Host "Client: '$_', Type: $($_.GetType().FullName)"
 	}
- 
- 
- 
- 	Write-Host "All Clients in includedClientArray:"
-	$includedClientArray | ForEach-Object {
-    		Write-Host "Client: '$_'"
-	}
+
 
 	Write-Host "First Client: $($includedClientsArray[0])"
 	Write-Host "Second Client: $($includedClientsArray[1])"
